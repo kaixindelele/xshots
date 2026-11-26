@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Xshots · 推评截图</title>
+    <link rel="stylesheet" href="popup.css" />
+    <script src="shared.js" defer></script>
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M12 7H7v5M20 7h5v5M25 20v5h-5M12 25H7v-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M12 13h8M12 18h5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h1>Xshots<span>推评截图</span></h1>
+            <p>单帖快拍，或多选帖子与神评合并长图。</p>
+          </div>
+        </div>
+        <span class="version">FOR X</span>
+      </header>
+
+      <section class="preview-section" aria-label="导出样式预览">
+        <div id="preview" class="preview" data-background="mist">
+          <div class="sample-card">
+            <div class="sample-author">
+              <div class="avatar" aria-hidden="true">
+                <svg viewBox="0 0 36 36" fill="none">
+                  <path d="M0 23 12 9l9 14 5-7 10 13v7H0Z" fill="#7c8873"/>
+                  <circle cx="26" cy="9" r="4" fill="#ead38f"/>
+                  <path d="m0 29 10-12 12 19H0Z" fill="#596951"/>
+                </svg>
+              </div>
+              <div class="author-text">
+                <strong>
+                  林间 · 设计手记
+                  <svg class="verified" viewBox="0 0 16 16" aria-label="已认证">
+                    <path d="m8 0 2 2 2.8.3.7 2.7L16 8l-2.5 2.5-.7 2.7L10 14l-2 2-2-2-2.8-.8-.7-2.7L0 8l2.5-3 .7-2.7L6 2Z" fill="currentColor"/>
+                    <path d="m4.5 8 2 2 5-5" fill="none" stroke="white" stroke-width="1.5"/>
+                  </svg>
+                </strong>
+                <span>@linjian_design</span>
+              </div>
+              <svg class="x-mark" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-7.6L5.2 22H2l7.4-8.5L1.8 2h6.5l4.5 6.9L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z"/>
+              </svg>
+            </div>
+            <p class="sample-content">把值得收藏的想法，<br />装进一张好看的图片。<span class="sample-spark">✳</span></p>
+            <div class="sample-meta">2026年11月12日 <span class="sample-metrics" id="sample-metrics">· &nbsp;♡ 128 &nbsp; ↗ 36</span></div>
+          </div>
+          <div class="sample-source" id="sample-source">
+            <span>x.com/linjian_design/status/2032000000000000000</span>
+            <span class="sample-watermark" id="sample-watermark" hidden></span>
+          </div>
+        </div>
+        <div class="preview-caption"><span><i></i>效果预览</span><span>保留原帖内容与图片</span></div>
+      </section>
+
+      <form id="settings-form">
+        <fieldset class="setting-group" id="background-fieldset" disabled>
+          <legend>画布风格</legend>
+          <div class="style-options">
+            <label class="style-option"><input type="radio" name="background" value="plain" /><span class="style-swatch swatch-plain"><span></span><svg class="selected-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 8 3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="style-name">原色</span></label>
+            <label class="style-option"><input type="radio" name="background" value="mist" checked /><span class="style-swatch swatch-mist"><span></span><svg class="selected-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 8 3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="style-name">柔雾</span></label>
+            <label class="style-option"><input type="radio" name="background" value="midnight" /><span class="style-swatch swatch-midnight"><span></span><svg class="selected-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 8 3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="style-name">夜幕</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="scale-group" id="scale-fieldset" disabled>
+          <legend>图片清晰度</legend>
+          <div class="scale-options" aria-label="图片倍率">
+            <label><input type="radio" name="scale" value="1" /><span>1× <small>标准</small></span></label>
+            <label><input type="radio" name="scale" value="2" checked /><span>2× <small>高清</small></span></label>
+            <label><input type="radio" name="scale" value="3" /><span>3× <small>超清</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="detail-options" id="details-fieldset" disabled>
+          <legend class="sr-only">截图包含的信息</legend>
+          <label class="toggle-row"><span>互动数据<small>点赞、回复与转帖</small></span><input type="checkbox" name="showMetrics" checked /><span class="toggle" aria-hidden="true"></span></label>
+          <label class="toggle-row"><span>原帖来源<small>方便找到原文</small></span><input type="checkbox" name="showSource" checked /><span class="toggle" aria-hidden="true"></span></label>
+          <label class="input-row"><span>水印文字<small>留空则不显示</small></span><input type="text" name="watermark" maxlength="40" placeholder="输入自定义水印" /></label>
+        </fieldset>
+      </form>
+
+      <div class="action-area">
+        <div class="page-status" id="page-status" data-state="loading">
+          <span class="status-dot"></span>
+          <span id="status-text">正在检查当前页面…</span>
+          <button id="refresh-status" class="icon-button" aria-label="重新检测页面" title="重新检测页面" type="button">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M13 5.8A5.3 5.3 0 1 0 13.3 10M13 2v4H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <button id="export-button" class="export-button" type="button" disabled>
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <rect x="5" y="4" width="10" height="13" rx="1.6" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M8 4.2V3.6A1.1 1.1 0 0 1 9.1 2.5h1.8A1.1 1.1 0 0 1 12 3.6v.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+          <span id="export-label">复制当前帖子</span>
+          <span class="file-type">PNG</span>
+        </button>
+        <p class="feedback" id="feedback" role="status" hidden></p>
+      </div>
+
+      <footer class="footer">
+        <span>
+          <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="3" y="6" width="8" height="6" rx="1.5" stroke="currentColor"/>
+            <path d="M4.5 6V4a2.5 2.5 0 0 1 5 0v2" stroke="currentColor"/>
+          </svg>
+          100% 本地渲染，零追踪
+        </span>
+        <button id="help-button" type="button" aria-expanded="false" aria-controls="help-panel">使用提示 <span aria-hidden="true">↗</span></button>
+      </footer>
+      <div id="help-panel" class="help-panel" hidden>
+        <p>打开 X，点击帖子右上角「…」旁的相机按钮即可一键复制单帖；点击旁边的「+」按钮可多选主帖与神评，合并生成一张完整长图。</p>
+        <p>长帖请先点「显示更多」展开；视频会自动使用当前帧或封面。安装后若未看到按钮，刷新 X 页面即可。</p>
+      </div>
+    </main>
+  </body>
+</html>

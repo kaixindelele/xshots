@@ -1,0 +1,72 @@
+[data-xs-export] {
+  appearance: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  width: 34px !important;
+  height: 34px !important;
+  margin: 0 !important;
+  padding: 8px !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  color: rgb(113, 118, 123) !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+  align-self: center !important;
+  transition: color .16s, background-color .16s !important;
+}
+[data-xs-export]:hover { color: #e77748 !important; background: rgba(231, 119, 72, .13) !important; }
+[data-xs-export]:focus-visible { outline: 2px solid #e77748 !important; outline-offset: 3px !important; }
+[data-xs-export][aria-busy="true"] { color: #e77748 !important; opacity: .7 !important; cursor: progress !important; }
+[data-xs-export] svg { display: block !important; width: 18px !important; height: 18px !important; fill: none !important; pointer-events: none !important; }
+
+[data-xs-toolbar] {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 4px !important;
+  min-width: max-content !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+[data-xs-select] {
+  appearance: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 2px 0 0 !important;
+  padding: 0 !important;
+  border: 1.5px solid rgba(113, 118, 123, .38) !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: rgb(113, 118, 123) !important;
+  cursor: pointer !important;
+  font: 600 12px/1 system-ui, sans-serif !important;
+  align-self: center !important;
+  pointer-events: auto !important;
+  touch-action: manipulation !important;
+  transition: color .14s, background-color .14s, border-color .14s !important;
+}
+[data-xs-select] * { pointer-events: none !important; }
+[data-xs-select]:hover { color: #e77748 !important; border-color: #e77748 !important; background: rgba(231, 119, 72, .12) !important; }
+[data-xs-select][data-xs-selected="true"] { background: #e77748 !important; border-color: #e77748 !important; color: #fff !important; }
+[data-xs-select] svg { display: block !important; width: 14px !important; height: 14px !important; fill: none !important; }
+[data-xs-select] [data-xs-badge] { display: none !important; line-height: 1 !important; }
+[data-xs-select][data-xs-selected="true"] svg { display: none !important; }
+[data-xs-select][data-xs-selected="true"] [data-xs-badge] { display: block !important; }
+[data-xs-select]:focus-visible { outline: 2px solid #e77748 !important; outline-offset: 2px !important; }
+
+[data-xs-positioned] { position: relative !important; }
+[data-xs-floating] { position: absolute !important; z-index: 30 !important; pointer-events: auto !important; }
+
+@media print {
+  [data-xs-export], [data-xs-select], [data-xs-toast-host], [data-xs-dock-host] { display: none !important; }
+}
